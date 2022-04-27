@@ -1,0 +1,10 @@
+.Table {
+    flex: 1;
+    align-self: center;
+    padding: 20px;
+
+    .ant-table-content {
+        border: 1px solid black;
+        border-radius: 6px;
+    }
+}

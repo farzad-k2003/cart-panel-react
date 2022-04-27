@@ -1,0 +1,75 @@
+.Cart {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+}
+
+.Cart form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.Cart form label {
+  margin: 20px 0 5px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.Cart form input {
+  width: 70%;
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.Cart form p {
+  font-size: 36px;
+}
+
+.Cart form button {
+  width: 100px;
+  font-size: 18px;
+  padding: 5px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #91D5FF;
+  color: black;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.Cart form button:hover {
+  background-color: #40c6ca;
+}
+
+.Cart form button:active {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+
+.Cart .ant-slider {
+  width: 450px;
+}
+
+.Cart .ant-slider-handle {
+  border: 2px solid black;
+}
+/*# sourceMappingURL=Cart.css.map */

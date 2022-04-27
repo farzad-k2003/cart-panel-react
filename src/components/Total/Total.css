@@ -1,0 +1,21 @@
+.total {
+  position: fixed;
+  width: 100vw;
+  height: 85px;
+  bottom: 0;
+  background-color: black;
+  padding: 20px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.total div > * {
+  color: white;
+}
+/*# sourceMappingURL=Total.css.map */

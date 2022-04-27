@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,IAAI,EAAE,CAAC;EACP,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,IAAI;CAMhB;;AATD,AAKI,MALE,CAKF,kBAAkB,CAAC;EACf,MAAM,EAAE,eAAe;EACvB,aAAa,EAAE,GAAG;CACrB",
+    "sources": [
+        "ItemsTable.scss"
+    ],
+    "names": [],
+    "file": "ItemsTable.css"
+}

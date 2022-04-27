@@ -1,0 +1,72 @@
+.ant-modal-body {
+  padding: 35px;
+}
+
+.modal-form {
+  width: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.modal-form label {
+  margin: 20px 0 5px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.modal-form input {
+  width: 70%;
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.modal-form p {
+  font-size: 36px;
+}
+
+.modal-form button {
+  width: 100px;
+  font-size: 18px;
+  padding: 5px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #91d5ff;
+  color: black;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.modal-form button:hover {
+  background-color: #40c6ca;
+}
+
+.modal-form button:active {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+
+.modal-form .ant-slider {
+  width: 350px;
+}
+
+.modal-form .ant-slider-handle {
+  border: 2px solid black;
+}
+/*# sourceMappingURL=ActionButton.css.map */
