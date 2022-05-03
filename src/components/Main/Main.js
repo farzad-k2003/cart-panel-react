@@ -2,6 +2,7 @@ import Cart from "../Cart/Cart";
 import ItemsTable from "../ItemsTable/ItemsTable";
 import Total from "../Total";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./Main.css";
 
 const Main = () => {
@@ -19,6 +20,24 @@ const Main = () => {
     setFinalPrice(0);
   }, [list]);
 
+  function onSubmit(event) {
+    event.preventDefault();
+    if (name !== "" && price !== "" && count) {
+      const newItem = {
+        key: uuidv4(),
+        name: name,
+        price: `${price}`,
+        count: count,
+        discount: `${discount}`,
+        finalPrice: `${finalPrice}`,
+      };
+      let newArr = [...list, newItem];
+      setList(newArr);
+    } else {
+      console.log("Error");
+    }
+  }
+
   return (
     <>
       <Cart
@@ -34,6 +53,7 @@ const Main = () => {
         setDiscount={setDiscount}
         finalPrice={finalPrice}
         setFinalPrice={setFinalPrice}
+        onSubmit={onSubmit}
       />
       <ItemsTable list={list} setList={setList} />
       <Total list={list} />

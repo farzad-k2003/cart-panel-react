@@ -1,14 +1,47 @@
 import Cart from "../Cart/Cart";
 import "./ActionButton.css";
-import { Modal, Slider } from "antd";
+import { Modal } from "antd";
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
 
 const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
-  const { register, handleSubmit, error } = useForm();
   const [editVisible, setEditVisible] = useState(false);
-  const [currentEditBtn, setCurrentEditBtn] = useState();
   const [currentItem, setCurrentItem] = useState();
+
+  const setName = (newName) => {
+    setCurrentItem((prev) => {
+      return { ...prev, name: newName };
+    });
+  };
+
+  const setPrice = (newPrice) => {
+    setCurrentItem((prev) => {
+      return { ...prev, price: newPrice };
+    });
+  };
+
+  const setCount = (newCount) => {
+    setCurrentItem((prev) => {
+      return { ...prev, count: newCount };
+    });
+  };
+
+  const setDiscount = (value) => {
+    setCurrentItem((prev) => {
+      return { ...prev, discount: value };
+    });
+  };
+
+  function setFinalPrice() {
+    if (currentItem) {
+      let finalPrice =
+        currentItem.count *
+        (currentItem.price - currentItem.price * (currentItem.discount / 100));
+
+      setCurrentItem((prev) => {
+        return { ...prev, finalPrice };
+      });
+    }
+  }
 
   function changeHandler() {
     setCurrentItem((prev) => {
@@ -28,20 +61,21 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
     currentItem?.name,
   ]);
 
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
     setList((prev) => {
       let updated = prev.map((item) => {
         if (item.key === currentItem.key) {
           return {
             ...item,
-            name: currentItem.name,
-            price: currentItem.price,
-            count: currentItem.count,
-            discount: currentItem.discount,
+            name: currentItem?.name,
+            price: currentItem?.price,
+            count: currentItem?.count,
+            discount: currentItem?.discount,
             finalPrice:
-              currentItem.count *
-              (currentItem.price -
-                currentItem.price * (currentItem.discount / 100)),
+              currentItem?.count *
+              (currentItem?.price -
+                currentItem?.price * (currentItem?.discount / 100)),
           };
         }
         return item;
@@ -53,7 +87,6 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
 
   const onCancel = () => {
     setEditVisible(false);
-    Modal.destroyAll();
     setCurrentItem(null);
   };
 
@@ -68,7 +101,6 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
 
   const editHandler = (itemId) => {
     setEditVisible(!editVisible);
-    setCurrentEditBtn(itemId);
     let myItem;
     list.map((item) => {
       if (item.key === itemId) {
@@ -95,62 +127,26 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
         destroyOnClose={true}
         visible={editVisible}
         onCancel={onCancel}
-        onOk={onSubmit}
+        footer={null}
         okText="Edit"
       >
-        <form className="modal-form">
-          <label>Name: </label>
-          <input
-            type="text"
-            {...register("name")}
-            value={currentItem?.name}
-            onChange={(event) => {
-              setCurrentItem((prev) => {
-                return { ...prev, name: event.target.value };
-              });
-            }}
-          />
-          <label>Price: </label>
-          <input
-            type="number"
-            {...register("price")}
-            value={currentItem?.price}
-            onChange={(event) => {
-              setCurrentItem((prev) => {
-                return { ...prev, price: event.target.value };
-              });
-            }}
-          />
-          <label>Count of product: </label>
-          <input
-            type="number"
-            {...register("count")}
-            value={currentItem?.count}
-            onChange={(event) => {
-              setCurrentItem((prev) => {
-                return { ...prev, count: event.target.value };
-              });
-            }}
-          />
-          <label>Discount: </label>
-          <Slider
-            defaultValue={currentItem?.discount}
-            value={currentItem?.discount}
-            min={0}
-            max={100}
-            id="discount"
-            tipFormatter={(value) => `${value}%`}
-            onChange={(value) => {
-              setCurrentItem((prev) => {
-                return { ...prev, discount: value };
-              });
-            }}
-          />
-          <p className="final-price">
-            Final price:{" "}
-            {currentItem?.finalPrice ? `$${currentItem?.finalPrice}` : "$0"}
-          </p>
-        </form>
+        <Cart
+          list={list}
+          setList={setList}
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+          name={currentItem?.name}
+          setName={setName}
+          price={currentItem?.price}
+          setPrice={setPrice}
+          count={currentItem?.count}
+          setCount={setCount}
+          discount={currentItem?.discount}
+          setDiscount={setDiscount}
+          finalPrice={currentItem?.finalPrice}
+          setFinalPrice={setFinalPrice}
+          onSubmit={onSubmit}
+        />
       </Modal>
     </>
   );

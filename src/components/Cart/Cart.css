@@ -50,7 +50,7 @@
   margin-bottom: 20px;
   border: none;
   border-radius: 6px;
-  background-color: #91D5FF;
+  background-color: #91d5ff;
   color: black;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
@@ -66,7 +66,7 @@
 }
 
 .Cart .ant-slider {
-  width: 450px;
+  width: 70%;
 }
 
 .Cart .ant-slider-handle {

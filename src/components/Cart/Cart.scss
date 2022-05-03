@@ -1,56 +1,55 @@
 .Cart {
+  width: 100%;
+  flex: 1;
+  padding: 20px;
+
+  form {
     width: 100%;
-    flex: 1;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 6px;
 
-    form {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        border: 1px solid black;
-        border-radius: 6px;
+    label {
+      margin: 20px 0 5px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    input {
+      width: 70%;
+      padding: 5px;
+      outline: none;
+      border: 1px solid black;
+      border-radius: 6px;
+    }
+    p {
+      font-size: 36px;
+    }
+    button {
+      width: 100px;
+      font-size: 18px;
+      padding: 5px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #91d5ff;
+      color: black;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #40c6ca;
+    }
+    button:active {
+      transform: translateY(5px);
+    }
+  }
+  .ant-slider {
+    width: 70%;
+  }
 
-        label {
-            margin: 20px 0 5px 0;
-            font-weight: 600;
-            font-size: 16px;
-        }
-        input {
-            width: 70%;
-            padding: 5px;
-            outline: none;
-            border: 1px solid black;
-            border-radius: 6px;
-            
-        }
-        p {
-            font-size: 36px;
-        }
-        button {
-            width: 100px;
-            font-size: 18px;
-            padding: 5px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 6px;
-            background-color: #91D5FF;
-            color: black;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #40c6ca;
-        }
-        button:active {
-            transform: translateY(5px);
-        }
-    }
-    .ant-slider {
-        width: 450px;
-    }
-
-    .ant-slider-handle {
-        border: 2px solid black
-    }
+  .ant-slider-handle {
+    border: 2px solid black;
+  }
 }

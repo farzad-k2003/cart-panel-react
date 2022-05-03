@@ -16,6 +16,7 @@ const Cart = ({
   setDiscount,
   finalPrice,
   setFinalPrice,
+  onSubmit,
 }) => {
   function changeHandler() {
     setFinalPrice(() => {
@@ -30,26 +31,23 @@ const Cart = ({
 
   useEffect(changeHandler, [discount, price, count, name, list]);
 
-  function clickHandler(event) {
-    event.preventDefault();
-    if (name !== "" && price !== "" && count) {
-      // const cache = JSON.parse(localStorage.getItem("data")) || [];
-      // use a new state for cache
-      const newItem = {
-        key: uuidv4(),
-        name: name,
-        price: `${price}`,
-        count: count,
-        discount: `${discount}`,
-        finalPrice: `${finalPrice}`,
-      };
-      let newArr = [...list, newItem];
-      setList(newArr);
-      // localStorage.setItem("data", JSON.stringify(newArr));
-    } else {
-      console.log("Error");
-    }
-  }
+  // function clickHandler(event) {
+  //   event.preventDefault();
+  //   if (name !== "" && price !== "" && count) {
+  //     const newItem = {
+  //       key: uuidv4(),
+  //       name: name,
+  //       price: `${price}`,
+  //       count: count,
+  //       discount: `${discount}`,
+  //       finalPrice: `${finalPrice}`,
+  //     };
+  //     let newArr = [...list, newItem];
+  //     setList(newArr);
+  //   } else {
+  //     console.log("Error");
+  //   }
+  // }
 
   return (
     <div className="Cart">
@@ -70,9 +68,7 @@ const Cart = ({
           name="price"
           value={price}
           onChange={(event) =>
-            event.target.value === 0
-              ? console.log("hi")
-              : setPrice(event.target.value)
+            event.target.value !== 0 && setPrice(event.target.value)
           }
         />
         <label htmlFor="count">Count of product: </label>
@@ -82,7 +78,6 @@ const Cart = ({
           id="count"
           name="count"
           value={count}
-          defaultValue={count}
           onChange={(event) => setCount(event.target.value)}
         />
 
@@ -101,7 +96,7 @@ const Cart = ({
         <p className="final-price">
           Final price: {finalPrice ? `$${finalPrice}` : "$0"}
         </p>
-        <button onClick={clickHandler}>ADD</button>
+        <button onClick={onSubmit}>ADD</button>
       </form>
     </div>
   );
