@@ -77,7 +77,12 @@ const ItemsTable = ({ list, setList }) => {
 
   return (
     <div className="Table">
-      <Table dataSource={list} columns={columns} />
+      <Table
+        dataSource={
+          list.length === 0 ? JSON.parse(localStorage.getItem("data")) : list
+        }
+        columns={columns}
+      />
     </div>
   );
 };

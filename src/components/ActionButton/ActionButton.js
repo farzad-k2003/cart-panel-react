@@ -1,3 +1,4 @@
+import Cart from "../Cart/Cart";
 import "./ActionButton.css";
 import { Modal, Slider } from "antd";
 import { useState, useEffect } from "react";

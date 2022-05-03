@@ -33,6 +33,8 @@ const Cart = ({
   function clickHandler(event) {
     event.preventDefault();
     if (name !== "" && price !== "" && count) {
+      // const cache = JSON.parse(localStorage.getItem("data")) || [];
+      // use a new state for cache
       const newItem = {
         key: uuidv4(),
         name: name,
@@ -43,6 +45,7 @@ const Cart = ({
       };
       let newArr = [...list, newItem];
       setList(newArr);
+      // localStorage.setItem("data", JSON.stringify(newArr));
     } else {
       console.log("Error");
     }
