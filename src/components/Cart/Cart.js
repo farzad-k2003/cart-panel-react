@@ -1,6 +1,5 @@
 import { Slider } from "antd";
 import { useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import "./Cart.css";
 
 const Cart = ({
@@ -30,24 +29,6 @@ const Cart = ({
   }
 
   useEffect(changeHandler, [discount, price, count, name, list]);
-
-  // function clickHandler(event) {
-  //   event.preventDefault();
-  //   if (name !== "" && price !== "" && count) {
-  //     const newItem = {
-  //       key: uuidv4(),
-  //       name: name,
-  //       price: `${price}`,
-  //       count: count,
-  //       discount: `${discount}`,
-  //       finalPrice: `${finalPrice}`,
-  //     };
-  //     let newArr = [...list, newItem];
-  //     setList(newArr);
-  //   } else {
-  //     console.log("Error");
-  //   }
-  // }
 
   return (
     <div className="Cart">

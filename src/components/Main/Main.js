@@ -8,10 +8,16 @@ import "./Main.css";
 const Main = () => {
   const [list, setList] = useState([]);
   const [name, setName] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
   const [discount, setDiscount] = useState(0);
-  const [finalPrice, setFinalPrice] = useState();
+  const [finalPrice, setFinalPrice] = useState(0);
+
+  useEffect(() => {
+    if (localStorage.getItem("data")) {
+      setList(JSON.parse(localStorage.getItem("data")));
+    }
+  }, []);
 
   useEffect(() => {
     setName("");
@@ -32,9 +38,8 @@ const Main = () => {
         finalPrice: `${finalPrice}`,
       };
       let newArr = [...list, newItem];
+      localStorage.setItem("data", JSON.stringify(newArr));
       setList(newArr);
-    } else {
-      console.log("Error");
     }
   }
 

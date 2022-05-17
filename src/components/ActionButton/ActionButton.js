@@ -80,6 +80,7 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
         }
         return item;
       });
+      localStorage.setItem("data", JSON.stringify(updated));
       return updated;
     });
     setEditVisible(false);
@@ -95,7 +96,13 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
       let result = prevList.filter((item) => {
         return item.key !== id;
       });
-      return result;
+      if (prevList.length === 1) {
+        localStorage.clear();
+        return result;
+      } else {
+        localStorage.setItem("data", JSON.stringify(result));
+        return result;
+      }
     });
   };
 
@@ -128,7 +135,6 @@ const ActionButton = ({ title, id, list, setList, deleteStyle, editStyle }) => {
         visible={editVisible}
         onCancel={onCancel}
         footer={null}
-        okText="Edit"
       >
         <Cart
           list={list}

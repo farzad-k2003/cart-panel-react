@@ -4,6 +4,9 @@
       -ms-flex: 1;
           flex: 1;
   padding: 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .Cart form {

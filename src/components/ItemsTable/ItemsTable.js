@@ -4,6 +4,7 @@ import "./ItemsTable.css";
 
 const ItemsTable = ({ list, setList }) => {
   const deleteStyle = {
+    width: "100%",
     color: "white",
     backgroundColor: "red",
     margin: "2px",
@@ -12,6 +13,7 @@ const ItemsTable = ({ list, setList }) => {
     borderRadius: "2px",
   };
   const editStyle = {
+    width: "100%",
     color: "white",
     backgroundColor: "green",
     margin: "2px",
